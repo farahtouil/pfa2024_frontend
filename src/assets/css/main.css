@@ -443,12 +443,16 @@ p {
 	NAVBAR CSS 
 ============================= */
 .navbar-area {
-  position: absolute;
+  position: fixed; /*absolute*/
   top: 0;
   left: 0;
   width: 100%;
   z-index: 99;
   transition: all 0.3s ease-out 0s;
+/**/
+  background-color: #5F6FFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);/* Add a subtle shadow */
+  padding: 0 15px; /* Adjust padding for a more compact navbar */
 }
 
 .sticky {
@@ -486,6 +490,10 @@ p {
   border-radius: 5px;
   position: relative;
   transition: all 0.3s ease-out 0s;
+  /*************************************
+  display: flex; /* Use flexbox for better alignment 
+  align-items: center; /* Align items vertically in the center 
+  justify-content: space-between; /* Space between logo and other elements */
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -494,12 +502,28 @@ p {
   }
 }
 
-.navbar-brand {
-  padding: 0;
-}
+/*.navbar-brand {
+  /*padding: 0;
+
+  max-width: 200px; /* Increase the logo size 
+  height: auto;
+  margin-left: 15px; /* Push the logo further to the left 
+}*/
+
+
+/*.navbar-brand {
+  position: relative;
+  background: url(assets/images/FamilyCare.svg);
+  width: 200px;
+ 
+  left: 15px;
+  background-size: contain;
+}*/
 
 .navbar-brand img {
-  max-width: 180px;
+  max-width: 180px; /*180*/
+
+  height: auto;
 }
 
 .navbar-toggler {
@@ -563,9 +587,14 @@ p {
 }
 
 .navbar-nav .nav-item {
-  position: relative;
+  /*position: relative;
   padding: 8px 0;
-  margin-right: 40px;
+  margin-right: 40px;*/
+
+  color: #FFFFFF; /* Set text color to white */
+  font-size: 18px;
+  padding: 8px 15px;
+  transition: color 0.3s ease;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -618,7 +647,9 @@ p {
 }
 
 .navbar-nav .nav-item a:hover, .navbar-nav .nav-item a.active {
-  color: #fff;
+  /*color: #fff;*/
+
+  color: #FB7370; /* Change color on hover or active */
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -665,10 +696,44 @@ p {
 }
 
 .header-btn .main-btn {
-  color: #fff;
+  /*color: #fff;
   background: rgba(255, 255, 255, 0.11);
   padding: 11px 23px;
-  border: 1px solid #fff;
+  border: 1px solid #fff;*/
+
+  color: #5F6FFF;
+  background-color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/**/
+.header-btn .main-btn:hover {
+  background-color: #FB7370; /* Change background on hover */
+  color: #FFFFFF;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 991px) {
+  .navbar-area {
+    padding: 15px 0;
+  }
+
+  .navbar-brand img {
+    max-width: 150px; /* Adjust logo size for smaller screens */
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 20px;
+  }
+}
+
+.navbar-logo img{
+  width: 139px; /* Match the desired width */
+  height: 60px; /* Match the desired height */
+  display: block; /* Ensure the image is treated as a block-level element */
+  position: relative; /* Adjust positioning if needed */
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {

@@ -40,7 +40,8 @@ export class LoginComponent {
           this.router.navigate(['/prestataire']);
         }
       } else {
-        this.showError(response.message);
+        console.log(response);
+        this.showError("Pas de compte avec cet email!");
       }
     } catch (error: any) {
       this.showError(error.message);

@@ -3,11 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
+import { NavbarClientComponent } from './navbar-client/navbar-client.component';
+import { BabysittingComponent } from './babysitting/babysitting.component';
+import { MenageComponent } from './menage/menage.component';
+import { AideComponent } from './aide/aide.component';
+
 
 
 @NgModule({
   declarations: [
-    ClientComponent
+    ClientComponent,
+    NavbarClientComponent,
+    BabysittingComponent,
+    MenageComponent,
+    AideComponent,
+   
   ],
   imports: [
     CommonModule,
