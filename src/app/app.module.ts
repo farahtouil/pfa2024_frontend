@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';//ajoute
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UsersService } from './users.service';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NzTableModule
   ],
   providers: [
     provideClientHydration(),

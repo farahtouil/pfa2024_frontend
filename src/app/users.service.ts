@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { ServiceP } from './models/serviceP.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 export class UsersService {
 
   private base_url ="http://localhost:8081";
+  private allServices: ServiceP[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -182,6 +185,22 @@ async updateServicePForPrestataire(id_user: string,id_ser: string ,serviceData: 
     throw error;
   }
 }
+
+//service methods
+async getServicesByType(type: string, token: string): Promise<ServiceP[]> {
+  const url = `${this.base_url}/service?type=${type}`;
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  try {
+    const response = await this.http.get<ServiceP[]>(url, { headers }).toPromise();
+    return response || [];
+  } catch (error) {
+    throw error;
+  }
+}
+
+
 
   /***AUTHEMNTICATION METHODS */
   logOut():void{

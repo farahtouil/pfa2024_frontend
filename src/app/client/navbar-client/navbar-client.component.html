@@ -18,60 +18,13 @@
                                   <div class="ms-auto">
                                       <ul id="nav" class="navbar-nav ms-auto">
                                           <li class="nav-item">
-                                              <a class="page-scroll active" href="#home">Nous sommes</a>
+                                              <a routerLink="/client/babysitting">Babysitting</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="page-scroll" href="#services">Services</a>
+                                              <a routerLink="/client/aide">Aide des personnes agées</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="page-scroll" href="#emploi">Emploi</a>
-                                      </ul>
-                                  </div>
-              </div>
-                              <div class="header-btn">
-                                  <a routerLink="/login" class="main-btn btn-hover">Se connecter</a>
-                              </div>
-                              <div class="header-btn ms-2">
-                                <a routerLink="/signup" class="main-btn btn-hover">Créer un compte</a>
-                            </div>
-              <!-- navbar collapse -->
-            </nav>
-            <!-- navbar -->
-          </div>
-        </div>
-        <!-- row -->
-      </div>
-      <!-- container -->
-    </div>
-    <!-- navbar area -->
-  </header>
-  <!-- ========================= header end ========================= --><!-- ========================= header start ========================= -->
-<header class="header">
-    <div class="navbar-area">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg">
-              <a class="navbar-logo img" href="index.html">
-                <img src="assets/images/FamilyCare.svg" alt="FamilyCare Logo" />
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="toggler-icon"></span>
-                <span class="toggler-icon"></span>
-                <span class="toggler-icon"></span>
-                              </button>
-                              
-              <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                  <div class="ms-auto">
-                                      <ul id="nav" class="navbar-nav ms-auto">
-                                          <li class="nav-item">
-                                              <a routerLink="">Babysitting</a>
-                                          </li>
-                                          <li class="nav-item">
-                                              <a routerLink="">Aide des personnes agées</a>
-                                          </li>
-                                          <li class="nav-item">
-                                              <a routerLink="">Ménage</a>
+                                              <a routerLink="/client/menage">Ménage</a>
                                         </li>
                                         <li class="nav-item" *ngIf = "isAuthenticated">
                                             <a routerLink="" (click)="logout()">Réservation</a>
