@@ -190,6 +190,63 @@ p {
 .text-yellow-link{
   color: #FFD700;
 }
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Center vertically */
+  background-color: #f0f0f5; /* Update background color to match your theme */
+}
+
+.bordered-table {
+  width: 80%;
+  border-collapse: collapse; /* Ensure borders are connected */
+  border: 1px solid #b5b5b5; /* Match border color to your site’s palette */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Adjust shadow to match your design */
+  background-color: #ffffff; /* Table background to contrast nicely */
+}
+
+.bordered-table thead th {
+  background-color: #FB7370; /* Use your primary theme color */
+  color: #ffffff; /* White text for contrast */
+  border: 1px solid #b5b5b5; /* Border color that fits your design */
+  padding: 12px; /* Add padding for spacing */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Ensure font size matches your site */
+}
+
+.bordered-table tbody td {
+  border: 1px solid #b5b5b5; /* Border color that fits your design */
+  padding: 12px; /* Add padding for spacing */
+  font-size: 15px; /* Ensure font size is consistent with your site */
+  color: #333333; /* Text color that fits your design */
+}
+
+.bordered-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray for alternate row coloring */
+}
+
+.bordered-table tbody tr:hover {
+  background-color: #e0e0e0; /* Slightly darker color on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.bordered-table a {
+  color: #FB7370; /* Link color matching your primary color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make it stand out */
+}
+
+.bordered-table a:hover {
+  text-decoration: underline; /* Underline on hover for links */
+}
+
+.title-container {
+  margin-bottom: 20px; /* Adjusts space between title and table */
+}
+
+
 /*===== fin de mes ajouts =====*/
 
 
@@ -849,6 +906,7 @@ p {
 
 .feature-section .section-title {
   padding: 0 20px;
+  
 }
 
 .single-feature {

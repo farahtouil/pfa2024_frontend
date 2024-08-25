@@ -1,1 +1,47 @@
 <app-navbar-client></app-navbar-client>
+
+<section class="feature-section container ">
+  <div class="container ">
+    <div *ngIf="listOfData.length > 0; else noDataMessage">
+      <div class="row justify-content-center">
+        <div >
+          <div class="section-title text-center mb-60 ">
+            <h3 *ngIf="gouvernorat" class="section-title">
+              Les agents de nettoyage disponibles dans {{ gouvernorat }}
+            </h3>
+            <br/>
+          </div>
+          
+        </div>
+        <table class="bordered-table">
+            
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Numéro de téléphone</th>
+              <th>Prix par heure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let service of listOfData">
+              <td><img [src]="service.prestataire.image" alt="Prestataire Image" width="50"></td>
+              <td>{{ service.prestataire.nom }}</td>
+              <td>{{ service.prestataire.prenom }}</td>
+              <td>{{ service.prestataire.num_tel }}</td>
+              <td>{{ service.prixparH }}</td>
+            </tr>
+          </tbody>
+        </table>    
+        </div>
+    </div>
+    <div>
+      <ng-template #noDataMessage>
+        <p class="text-center">Aucune agent de nettoyage disponible pour le moment dans {{gouvernorat}}!!</p>
+      </ng-template>
+    </div>
+    
+    </div>
+    
+</section>

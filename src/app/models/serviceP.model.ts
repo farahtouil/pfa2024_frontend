@@ -13,5 +13,11 @@ export interface ServiceP {
 id_ser: number;
   type: string;
   prixparH: number;
-  prestataire_id: number;
+  prestataire: Prestataire;
+}
+
+export interface ServicePResponse {
+  statusCode: number;
+  message: string;
+  servicePs: ServiceP[];
 }

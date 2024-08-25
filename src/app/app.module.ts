@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';//ajoute
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UsersService } from './users.service';
@@ -16,6 +16,8 @@ import { SignupComponent } from './signup/signup.component';
 import { EmploiComponent } from './emploi/emploi.component';
 import { FooterComponent } from './welcome/footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { SignupClientComponent } from './signup/signup-client/signup-client.component';
+import { SignupPrestataireComponent } from './signup/signup-prestataire/signup-prestataire.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     SignupComponent,
     EmploiComponent,
     FooterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SignupClientComponent,
+    SignupPrestataireComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient()//ajoute
+    provideHttpClient(withFetch()) // Enable fetch API
   ],
   bootstrap: [AppComponent]
 })
