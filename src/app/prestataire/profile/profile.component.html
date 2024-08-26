@@ -1,0 +1,55 @@
+<app-navbar-prestataire></app-navbar-prestataire>
+
+<section class="feature-section container ">  
+  <div *ngIf="prestataire" class="container">
+    <div class="custom-card row justify-content-center">
+      <h2 class="title-container">Votre Profile</h2>
+      <table class="bordered-table">
+        <tbody>
+          <tr>
+            <th>Nom</th>
+            <td>{{ prestataire.nom }}</td>
+          </tr>
+          <tr>
+            <th>Prénom</th>
+            <td>{{ prestataire.prenom }}</td>
+          </tr>
+          <tr>
+            <th>Numéro de téléphone</th>
+            <td>{{ prestataire.num_tel }}</td>
+          </tr>
+          <tr>
+            <th>Gouvernorat</th>
+            <td>{{ prestataire.gouvernorat }}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{ prestataire.mail }}</td>
+          </tr>
+          <tr>
+            <th>Date de naissance</th>
+            <td>{{ prestataire.date_de_naissance }}</td>
+          </tr>
+          <tr>
+            <th>Image</th>
+            <td><img [src]="prestataire.image" alt="Prestataire Image" width="100"></td>
+          </tr>
+
+          <!-- Services List Section -->
+      <div *ngIf="prestataire.servicesP && prestataire.servicesP.length > 0" class="services-section">
+        <h3>Services Offerts</h3>
+        <ul class="services-list">
+          <li *ngFor="let service of prestataire.servicesP">
+            <strong>{{ service.type }}</strong>: {{ service.prixparH }} €/heure
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="!prestataire.servicesP || prestataire.servicesP.length === 0" class="no-services">
+        <p>Aucun service disponible.</p>
+      </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </section>
+  

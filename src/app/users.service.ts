@@ -30,26 +30,22 @@ export class UsersService {
     }
   }
 
-  async registerClient(clientData: any, token: string): Promise<any> {
+  async registerClient(clientData: any): Promise<any> {
     const url = `${this.base_url}/auth/registerClient`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
+    
     try {
-      const response = await firstValueFrom(this.http.post<any>(url, clientData, { headers }));
+      const response = await firstValueFrom(this.http.post<any>(url, clientData));
       return response;
     } catch (error) {
       throw error;
     }
   }
 
-  async registerPrestataire(presData: any, token: string): Promise<any> {
+  async registerPrestataire(presData: any): Promise<any> {
     const url = `${this.base_url}/auth/registerPrestataire`;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
+    
     try {
-      const response = await firstValueFrom(this.http.post<any>(url, presData, { headers }));
+      const response = await firstValueFrom(this.http.post<any>(url, presData));
       return response;
     } catch (error) {
       throw error;
@@ -150,7 +146,7 @@ export class UsersService {
     }
   }
 
-  async getPrestataireById(id_user: string, token: string): Promise<any> {
+  async getPrestataireById(id_user: number, token: string): Promise<any> {
     const url = `${this.base_url}/prestataire/${id_user}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,

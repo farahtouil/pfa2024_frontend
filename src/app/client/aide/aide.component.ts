@@ -39,7 +39,7 @@ export class AideComponent {
       
       // Checking if the response is in the correct format
       if (response && Array.isArray(response.servicePs)) {
-        this.listOfData = response.servicePs; // Assign the array to listOfData
+        this.listOfData = response.servicePs.filter(service => service.prestataire.gouvernorat === this.gouvernorat);
       } else {
         console.error('Unexpected response format:', response);
       }

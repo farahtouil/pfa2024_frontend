@@ -246,6 +246,21 @@ p {
   margin-bottom: 20px; /* Adjusts space between title and table */
 }
 
+.custom-card {
+  background-color: #f8f9fa; /* Light background for better contrast */
+  padding: 2rem; /* More padding for a larger appearance */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%; /* Make the card take full width of the container */
+  max-width: 900px; /* Limit the maximum width */
+  margin: 2rem auto; /* Center the card and add margin on top/bottom */
+}
+
+.services-section {
+  margin-top: 20px; /* Adjust the value as needed */
+}
+
+
 
 /*===== fin de mes ajouts =====*/
 
@@ -870,6 +885,7 @@ p {
 
 .hero-section .hero-image {
   padding-top: 50px;
+  
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -905,7 +921,7 @@ p {
 }
 
 .feature-section .section-title {
-  padding: 0 20px;
+  padding: 20 20px; /*20px*/
   
 }
 
@@ -1027,6 +1043,7 @@ p {
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .feature-section-1 .feature-image {
     margin-top: 60px;
+    
     position: static;
     width: 100%;
     transform: translateY(0);

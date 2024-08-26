@@ -35,9 +35,9 @@ export class LoginComponent {
         if (response.role === 'admin') {
           this.router.navigate(['/admin']);
         } else if (response.role === 'client') {
-          this.router.navigate(['/client']);
+          this.router.navigate(['/client/babysitting']);
         }else if (response.role === 'prestataire') {
-          this.router.navigate(['/prestataire']);
+          this.router.navigate(['/prestataire/reservations']);
         }
       } else {
         console.log(response);

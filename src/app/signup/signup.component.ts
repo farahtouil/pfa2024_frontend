@@ -13,16 +13,14 @@ export class SignupComponent {
 
   selectRole(role: string) {
     if (role === 'client') {
-      this.router.navigate(['/signup/client']);
+      this.router.navigate(['/signup/signup-client']);
     } else if (role === 'prestataire') {
-      this.router.navigate(['/signup/prestataire']);
+      this.router.navigate(['/signup/signup-prestataire']);
     } else {
       this.errorMessage = 'Veuillez sélectionner un rôle valide.';
     }
   }
 
-  handleSubmit() {
-    // You can handle form submission here if needed
-  }
+  
 
 }
