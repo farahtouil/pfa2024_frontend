@@ -8,6 +8,7 @@ import { NavbarClientComponent } from './navbar-client/navbar-client.component';
 import { BabysittingComponent } from './babysitting/babysitting.component';
 import { MenageComponent } from './menage/menage.component';
 import { AideComponent } from './aide/aide.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 
@@ -18,6 +19,7 @@ import { AideComponent } from './aide/aide.component';
     BabysittingComponent,
     MenageComponent,
     AideComponent,
+    ReservationComponent,
    
   ],
   imports: [

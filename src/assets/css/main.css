@@ -324,6 +324,53 @@ p {
   transform: translate3d(-50%, -50%, 0) scale(1.3);
 }
 
+/*Mes bouton*/
+/* Table Button Style */
+/* Table Button Style */
+.table-btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+  background: #5F6FFF; /* Updated background color */
+  text-decoration: none;
+}
+
+.table-btn:hover {
+  background: #4F5FDD; /* Slightly darker shade for hover effect */
+  color: #fff;
+}
+
+.table-btn.border-btn {
+  border: 2px solid #5F6FFF; /* Border color matches the background */
+  background: transparent;
+  color: #5F6FFF;
+}
+
+.table-btn.border-btn:hover {
+  background: rgba(95, 111, 255, 0.2); /* Light background color on hover */
+}
+
+.table-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(95, 111, 255, 0.5); /* Focus ring color matches the button */
+}
+
+
+
+
+/*Fin de mes boutons*/
+
 .scroll-top {
   width: 45px;
   height: 45px;

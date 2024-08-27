@@ -22,6 +22,7 @@
               <th>Prénom</th>
               <th>Numéro de téléphone</th>
               <th>Prix par heure</th>
+              <th>Réserver</th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +32,10 @@
               <td>{{ service.prestataire.prenom }}</td>
               <td>{{ service.prestataire.num_tel }}</td>
               <td>{{ service.prixparH }}</td>
+              <td class="text-center">
+                <button class="clickable-link">Réserver</button>
+              </td>
+              
             </tr>
           </tbody>
         </table>    
