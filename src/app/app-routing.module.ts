@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupClientComponent } from './signup/signup-client/signup-client.component';
 import { SignupPrestataireComponent } from './signup/signup-prestataire/signup-prestataire.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'signup/signup-prestataire',component:SignupPrestataireComponent},
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
-  { path: 'prestataire', loadChildren: () => import('./prestataire/prestataire.module').then(m => m.PrestataireModule) }
+  { path: 'prestataire', loadChildren: () => import('./prestataire/prestataire.module').then(m => m.PrestataireModule) },
+  { path: '**',component:NotFoundComponent}
 ];
 
 @NgModule({

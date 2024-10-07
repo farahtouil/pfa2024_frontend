@@ -88,7 +88,7 @@ export class SignupPrestataireComponent {
     const reader = new FileReader();
   reader.onload = async () => {
     const base64String = reader.result as string;
-    const base64Data = base64String.replace(/^data:image\/[a-z]+;base64,/, '');
+    //const base64Data = base64String.replace(/^data:image\/[a-z]+;base64,/, '');
     const signupData = {
       nom: this.nom,
       prenom: this.prenom,
@@ -96,7 +96,7 @@ export class SignupPrestataireComponent {
       gouvernorat: this.gouvernorat,
       mail: this.mail,
       mdp: this.mdp,
-      image: base64Data,
+      image: base64String,
       date_de_naissance: this.date_de_naissance,
       servicesP: this.selectedServices.map(serviceId => ({
         type: this.servicesP.find(service => service.id === serviceId)?.name || '',

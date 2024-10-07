@@ -1187,6 +1187,7 @@ p {
 /* ==========================
     FOOTER CSS
 ============================= */
+/* Centered Footer Styles */
 .footer {
   background-image: url("../images/footer/footer-bg.svg");
   background-size: cover;
@@ -1196,140 +1197,64 @@ p {
   margin-top: 100px;
 }
 
-.footer .section-title {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.footer .section-title h2 {
-  font-size: 30px;
-  color: #fff;
-  margin-bottom: 15px;
-}
-
-.footer .section-title p {
-  color: #fff;
-  max-width: 545px;
-  margin: auto;
-}
-
-.footer .newsletter-form-wrapper {
-  margin-bottom: 30px;
-}
-
-@media (max-width: 767px) {
-  .footer .newsletter-form-wrapper {
-    margin-bottom: 50px;
-  }
-}
-
-.footer .newsletter-form-wrapper form {
-  position: relative;
-}
-
-@media (max-width: 767px) {
-  .footer .newsletter-form-wrapper form {
-    text-align: center;
-  }
-}
-
-.footer .newsletter-form-wrapper form input {
-  width: 100%;
-  height: 64px;
-  border-radius: 50px;
-  background: #fff;
-  border: 2px solid transparent;
-  padding: 0 30px;
-  transition: all 0.3s ease-out 0s;
-}
-
-.footer .newsletter-form-wrapper form input:focus {
-  border-color: #5F6FFF;
-}
-
-.footer .newsletter-form-wrapper form button {
-  padding: 0 25px;
-  background: #00B06E;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 64px;
-}
-
-@media (max-width: 767px) {
-  .footer .newsletter-form-wrapper form button {
-    position: static;
-    margin: auto;
-    margin-top: 15px;
-  }
-}
-
-@media only screen and (min-width: 550px) and (max-width: 767px) {
-  .footer .newsletter-form-wrapper form button {
-    position: absolute;
-    margin-top: 0;
-  }
-}
-
 .footer .footer-menu ul {
   display: flex;
-  align-items: center;
+  justify-content: center; /* Center the list items */
+  align-items: center; /* Vertically center the items */
+  padding: 0;
+  list-style: none; /* Remove default list styling */
 }
 
-@media (max-width: 767px) {
-  .footer .footer-menu ul {
-    justify-content: center;
-  }
+.footer .footer-menu ul li {
+  margin: 0 15px; /* Space out the list items */
 }
 
 .footer .footer-menu ul li a {
   font-size: 16px;
   color: #fff;
-  margin-right: 35px;
-  display: block;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .footer .footer-menu ul li a {
-    margin-right: 30px;
-  }
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease;
 }
 
 .footer .footer-menu ul li a:hover {
-  color: #00B06E;
-}
-
-.footer .footer-social ul {
-  padding: 30px 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  color: #00B06E; /* Change color on hover */
 }
 
 @media (max-width: 767px) {
-  .footer .footer-social ul {
-    justify-content: center;
+  .footer .footer-menu ul {
+    flex-direction: column; /* Stack the list items on smaller screens */
+  }
+
+  .footer .footer-menu ul li {
+    margin-bottom: 10px; /* Add space between stacked items */
   }
 }
+/*NOT FOUND page*/
 
-.footer .footer-social ul li a {
-  width: 44px;
-  height: 44px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-radius: 50%;
+/* Center the message on the page */
+
+
+.centered-message {
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-left: 12px;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Optional: Set a background color */
+  color: #5F6FFF; /* Replace with one of your project's colors */
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for effect */
 }
 
-.footer .footer-social ul li a:hover {
-  background: #00B06E;
+/* Container to make the message responsive */
+.centered-message-container {
+  width: 100%;
+  max-width: 600px;
 }
+
+
 
 /* ======================
     DEFAULT CSS
