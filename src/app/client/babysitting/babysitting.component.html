@@ -33,7 +33,7 @@
               <td>{{ service.prestataire.num_tel }}</td>
               <td>{{ service.prixparH }}</td>
               <td class="text-center">
-                <button class="clickable-link">Réserver</button>
+                <button class="clickable-link" (click)="openDialog(service.prestataire.nom, service.prestataire.prenom,'babysitter')">Réserver</button>
               </td>
             </tr>
           </tbody>

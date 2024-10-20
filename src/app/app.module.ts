@@ -6,6 +6,15 @@ import { RouterModule } from '@angular/router';
 import { UsersService } from './users.service';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +27,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupClientComponent } from './signup/signup-client/signup-client.component';
 import { SignupPrestataireComponent } from './signup/signup-prestataire/signup-prestataire.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,14 +39,22 @@ import { NotFoundComponent } from './not-found/not-found.component';
     WelcomeComponent,
     SignupClientComponent,
     SignupPrestataireComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule,
-    NzTableModule
+    NzTableModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
   providers: [
     provideClientHydration(),

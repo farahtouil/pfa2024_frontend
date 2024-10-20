@@ -227,6 +227,22 @@ export class UsersService {
     }
   }
 
+  //Reservation methods
+  async createReservation(reservationData: any, token: string): Promise<any> {
+    const url = `${this.base_url}/reservations`; 
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    try {
+      const response = await firstValueFrom(this.http.post<any>(url, reservationData, { headers }));
+      return response;
+    } catch (error) {
+      console.error('Error creating reservation:', error);
+      throw error;
+    }
+  }
+
   // Authentication Methods
 
   logOut(): void {

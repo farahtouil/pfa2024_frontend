@@ -1254,6 +1254,46 @@ p {
   max-width: 600px;
 }
 
+/*NOT FOUND page*/
+
+/*Pop Up*/
+/* Center the content inside the dialog */
+.mat-dialog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the pop-up box */
+h3 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #5F6FFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4e59cc;
+}
+
+/* Optional: Add padding around the dialog content */
+.dialog-content {
+  padding: 20px;
+}
+
+/*Pop Up*/
 
 
 /* ======================

@@ -1,0 +1,33 @@
+<div class="dialog-content">
+    <h3>Reserver {{data.ser}} {{ data.nom }} {{ data.prenom }}</h3>
+   <!-- Improved Date Input -->
+  <mat-form-field appearance="fill">
+    <mat-label>Choisir une date (JJ/MM/AAAA)</mat-label>
+    <input matInput [(ngModel)]="selectedDate" placeholder="JJ/MM/AAAA" />
+  </mat-form-field>
+
+  <!-- Beginning Hour Selector -->
+  <mat-form-field appearance="fill">
+    <mat-label>Heure de début</mat-label>
+    <mat-select [(ngModel)]="heureDep">
+      <mat-option *ngFor="let time of availableTimes" [value]="time">
+        {{ time }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Ending Hour Selector -->
+  <mat-form-field appearance="fill">
+    <mat-label>Heure de fin</mat-label>
+    <mat-select [(ngModel)]="heureFin">
+      <mat-option *ngFor="let time of availableTimes" [value]="time">
+        {{ time }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="onConfirm()">Confirmer</button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Annuler</button>
+  </div>
+</div>

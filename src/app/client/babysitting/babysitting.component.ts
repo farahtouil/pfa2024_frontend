@@ -2,6 +2,9 @@ import { Component,OnInit } from '@angular/core';
 import { UsersService } from '../../users.service';
 import { ServicePResponse ,ServiceP} from '../../models/serviceP.model';
 
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../../pop-up/pop-up.component';
+
 
 
 @Component({
@@ -17,7 +20,19 @@ export class BabysittingComponent implements OnInit{
   listOfData: ServiceP[] = [];
   gouvernorat: string | null = '';
   
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService, private DialogRef : MatDialog) {}
+
+  openDialog(nom: string, prenom: string,ser : String){
+    this.DialogRef.open(PopUpComponent,{
+      data : {
+        nom: nom,
+        prenom: prenom,
+        ser : ser
+      },
+      width: '400px'
+  });
+  }
+  
 
   async ngOnInit(): Promise<void> {
     try {
