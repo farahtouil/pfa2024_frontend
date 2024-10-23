@@ -1,10 +1,21 @@
 <div class="dialog-content">
-    <h3>Reserver {{data.ser}} {{ data.nom }} {{ data.prenom }}</h3>
-   <!-- Improved Date Input -->
+    <!--<h3>Reserver {{data.ser}} {{ data.nom }} {{ data.prenom }}</h3>
+  
   <mat-form-field appearance="fill">
     <mat-label>Choisir une date (JJ/MM/AAAA)</mat-label>
     <input matInput [(ngModel)]="selectedDate" placeholder="JJ/MM/AAAA" />
-  </mat-form-field>
+  </mat-form-field>-->
+
+  <h3>Reserver chez {{ data.nom }} {{ data.prenom }}</h3>
+  
+    <!-- Date Picker Implementation -->
+    <mat-form-field appearance="fill">
+      <mat-label>Choisir une date</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Choisir une date" [(ngModel)]="selectedDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
 
   <!-- Beginning Hour Selector -->
   <mat-form-field appearance="fill">

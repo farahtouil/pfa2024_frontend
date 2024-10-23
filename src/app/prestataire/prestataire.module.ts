@@ -6,6 +6,7 @@ import { PrestataireComponent } from './prestataire.component';
 import { NavbarPrestataireComponent } from './navbar-prestataire/navbar-prestataire.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { ResAcceptComponent } from './res-accept/res-accept.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ReservationsComponent } from './reservations/reservations.component';
     PrestataireComponent,
     NavbarPrestataireComponent,
     ProfileComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    ResAcceptComponent
   ],
   imports: [
     CommonModule,

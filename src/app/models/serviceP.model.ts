@@ -9,6 +9,15 @@ export interface Prestataire {
     image: string;
   }
 
+  export interface Client {
+    id_user: number;
+    nom: string;
+    prenom: string;
+    num_tel: number;
+    gouvernorat: string;
+    mail: string;
+  }
+
   export interface PrestataireInitial {
     id_user: number;
     nom: string;
@@ -46,3 +55,25 @@ export interface PrestataireResponse {
   prestataire : PrestataireInitial;
 
 }
+
+export interface Reservation {
+  id_res: number;           
+  service: ServiceP;       
+  client: string;      
+  statut: string;           
+  heures : string,       
+  prix: number;             
+  date_unique: string;      
+}
+
+export interface ReservationForClient {
+  id_res: number;           
+  service: ServiceP;       
+ // client: string;      
+  statut: string;           
+  heures : string,       
+  prix: number;             
+  date_unique: string;    
+  prestataire: string;  
+}
+

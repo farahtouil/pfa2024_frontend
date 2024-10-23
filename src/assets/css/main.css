@@ -167,6 +167,9 @@ p {
   }
 }
 /*===== Mes ajouts =====*/
+.custom-backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Darken the backdrop */
+}
 /* Container to center the form */
 .container {
   display: flex;
@@ -643,6 +646,8 @@ p {
   max-width: 180px; /*180*/
 
   height: auto;
+
+ 
 }
 
 .navbar-toggler {
@@ -841,6 +846,7 @@ p {
 
   .navbar-brand img {
     max-width: 150px; /* Adjust logo size for smaller screens */
+    
   }
 
   .navbar-nav .nav-item {
@@ -848,12 +854,25 @@ p {
   }
 }
 
+/*nAjouts*/
+@media (max-width: 767px) {
+  .navbar-brand img {
+    max-width: 120px; /* Resize the logo for mobile devices */
+    margin-left: 5px; /* Reduce margin for smaller screens */
+  }
+}
+/**/
+
+
 .navbar-logo img{
-  width: 139px; /* Match the desired width */
-  height: 60px; /* Match the desired height */
+  /*width: 139px; 
+  height: 60px; */
   display: block; /* Ensure the image is treated as a block-level element */
   position: relative; /* Adjust positioning if needed */
+
+  
 }
+
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .header-btn .main-btn {

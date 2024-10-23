@@ -2,6 +2,10 @@ import { Component,OnInit } from '@angular/core';
 import { UsersService } from '../../users.service';
 import { ServicePResponse ,ServiceP} from '../../models/serviceP.model';
 
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../../pop-up/pop-up.component';
+
+
 
 @Component({
   selector: 'app-aide',
@@ -11,13 +15,41 @@ import { ServicePResponse ,ServiceP} from '../../models/serviceP.model';
 export class AideComponent {
   listOfData: ServiceP[] = [];
   gouvernorat: string | null = '';
+  clientId: number | null=null;
   
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService,private DialogRef : MatDialog) {}
+
+  openDialog(nom: string, prenom: string, ser: number) {
+    // Ensure clientId is available before opening the dialog
+    if (this.clientId) {
+      this.DialogRef.open(PopUpComponent, {
+        data: {
+          nom: nom,
+          prenom: prenom,
+          ser: ser,
+          clientId: this.clientId // Pass clientId to the dialog
+        },
+        width: '400px',
+        backdropClass: 'custom-backdrop',
+        disableClose: false
+      }).afterClosed().subscribe(result => {
+        if (result?.success) {
+          console.log('Reservation created successfully:', result.reservation);
+          // Handle reservation success (e.g., show a confirmation message or update UI)
+        } else {
+          console.log('Dialog closed without reservation creation.');
+        }
+      });
+    } else {
+      console.error('Client ID not available.');
+    }
+  }
 
   async ngOnInit(): Promise<void> {
     try {
       // Fetch and assign the gouvernorat asynchronously
       this.gouvernorat = await this.userService.getGouvernoratFromToken();
+      this.clientId = await this.userService.getClientIdFromToken();
       console.log('gouvernorat:', this.gouvernorat);
   
       // You can now use this.gouvernorat for further processing, e.g., fetching services

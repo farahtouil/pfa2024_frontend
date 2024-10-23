@@ -1,1 +1,42 @@
 <app-navbar-prestataire></app-navbar-prestataire>
+
+<section class="feature-section container">
+  <div class="container">
+    <div *ngIf="listOfData.length > 0; else noDataMessage">
+      <div class="row justify-content-center">
+        <table class="bordered-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Client</th>
+              <th>Date</th>
+              <th>Heures</th>
+              <th>Prix</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reservation of listOfData">
+              <td>{{ reservation.service }}</td>
+              <td>{{ reservation.client }}</td>
+              <td>{{ reservation.date_unique | date: 'shortDate' }}</td> <!-- Format date if needed -->
+              <td>{{ reservation.heures }}</td>
+              <td>{{ reservation.prix }} DT</td> <!-- Display price with currency -->
+              <td>{{ reservation.statut }}</td>
+              <td>
+                <button (click)="acceptReservation(reservation.id_res)">Accepter</button>
+                <button (click)="refuseReservation(reservation.id_res)">Refuser</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <ng-template #noDataMessage>
+        <p class="text-center">Aucune demande de réservation disponible pour le moment :(</p>
+      </ng-template>
+    </div>
+  </div>
+</section>

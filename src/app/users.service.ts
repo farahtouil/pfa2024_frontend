@@ -130,6 +130,48 @@ export class UsersService {
     return null;
 }
 
+async getClientIdFromToken(): Promise<number | null> {
+  const token = this.getToken();
+  console.log("Token retrieved:", token);
+  if (token) {
+      const decodedToken: any = jwtDecode(token);
+      console.log("Decoded token:", decodedToken);
+      const clientId = decodedToken ? decodedToken.user_id : null;
+
+      if (clientId) {
+          console.log("Client ID retrieved:", clientId);
+          return clientId;
+      } else {
+          console.log("Client ID not found in token");
+          return null;
+      }
+  } else {
+      console.log("Token not found");
+      return null;
+  }
+}
+
+async getPrestataireIdFromToken(): Promise<number | null> {
+  const token = this.getToken();
+  console.log("Token retrieved:", token);
+  if (token) {
+      const decodedToken: any = jwtDecode(token);
+      console.log("Decoded token:", decodedToken);
+      const PresId = decodedToken ? decodedToken.user_id : null;
+
+      if (PresId) {
+          console.log("Prestataire ID retrieved:", PresId);
+          return PresId;
+      } else {
+          console.log("Prestataire ID not found in token");
+          return null;
+      }
+  } else {
+      console.log("Token not found");
+      return null;
+  }
+}
+
 
   // Prestataire Methods
 
@@ -227,6 +269,19 @@ export class UsersService {
     }
   }
 
+  async getServiceById(id_ser: number, token: string): Promise<any> {
+    const url = `${this.base_url}/service/${id_ser}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = await firstValueFrom(this.http.get<any>(url, { headers }));
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   //Reservation methods
   async createReservation(reservationData: any, token: string): Promise<any> {
     const url = `${this.base_url}/reservations`; 
@@ -239,6 +294,52 @@ export class UsersService {
       return response;
     } catch (error) {
       console.error('Error creating reservation:', error);
+      throw error;
+    }
+  }
+
+  async getReservationsByPrestataire(id_user: number, token: string): Promise<any> {
+    const url = `${this.base_url}/reservations/prestataire/${id_user}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    try {
+      const response = await firstValueFrom(this.http.get<any>(url, { headers }));
+      return response;
+    } catch (error) {
+      throw error;
+    }
+    
+  }
+
+  async getReservationsByClient(id_user: number, token: string): Promise<any> {
+    const url = `${this.base_url}/reservations/client/${id_user}`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    try {
+      const response = await firstValueFrom(this.http.get<any>(url, { headers }));
+      return response;
+    } catch (error) {
+      throw error;
+    }
+    
+  }
+  
+  async updateStatut(id_user: number, statut: string, token: string): Promise<any> {
+    const url = `${this.base_url}/reservations/${id_user}/status`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json'
+    });
+
+    const body = { statut };
+    try {
+      const response = await firstValueFrom(this.http.put<any>(url,body,{ headers }));
+      return response;
+    } catch (error) {
       throw error;
     }
   }

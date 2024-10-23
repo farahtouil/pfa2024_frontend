@@ -19,18 +19,36 @@ export class BabysittingComponent implements OnInit{
 
   listOfData: ServiceP[] = [];
   gouvernorat: string | null = '';
+  clientId: number | null=null;
   
   constructor(private userService: UsersService, private DialogRef : MatDialog) {}
 
-  openDialog(nom: string, prenom: string,ser : String){
-    this.DialogRef.open(PopUpComponent,{
-      data : {
-        nom: nom,
-        prenom: prenom,
-        ser : ser
-      },
-      width: '400px'
-  });
+  
+
+  openDialog(nom: string, prenom: string, ser: number) {
+    // Ensure clientId is available before opening the dialog
+    if (this.clientId) {
+      this.DialogRef.open(PopUpComponent, {
+        data: {
+          nom: nom,
+          prenom: prenom,
+          ser: ser,
+          clientId: this.clientId // Pass clientId to the dialog
+        },
+        width: '400px',
+        backdropClass: 'custom-backdrop',
+        disableClose: false
+      }).afterClosed().subscribe(result => {
+        if (result?.success) {
+          console.log('Reservation created successfully:', result.reservation);
+          // Handle reservation success (e.g., show a confirmation message or update UI)
+        } else {
+          console.log('Dialog closed without reservation creation.');
+        }
+      });
+    } else {
+      console.error('Client ID not available.');
+    }
   }
   
 
@@ -38,14 +56,16 @@ export class BabysittingComponent implements OnInit{
     try {
       // Fetch and assign the gouvernorat asynchronously
       this.gouvernorat = await this.userService.getGouvernoratFromToken();
+      this.clientId = await this.userService.getClientIdFromToken();
       console.log('gouvernorat:', this.gouvernorat);
+      console.log('clientId:', this.clientId);
   
       // You can now use this.gouvernorat for further processing, e.g., fetching services
       //if (this.gouvernorat) {
         //this.fetchServices();
       //}
     } catch (error) {
-      console.error('Error fetching gouvernorat:', error);
+      console.error('Error fetching gouvernorat or clientId:', error);
     }
     this.fetchServices();
   }

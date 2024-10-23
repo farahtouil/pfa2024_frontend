@@ -1,51 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { Reservation } from '../../models/serviceP.model';
 import { UsersService } from '../../users.service';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-reservations',
-  templateUrl: './reservations.component.html',
-  styleUrl: './reservations.component.css'
+  selector: 'app-res-accept',
+  templateUrl: './res-accept.component.html',
+  styleUrl: './res-accept.component.css'
 })
-export class ReservationsComponent implements OnInit{
+export class ResAcceptComponent implements OnInit{
 
   listOfData: Reservation[] = [];
   id_user: number | null = null;
 
   constructor(private usersService: UsersService, private router: Router) {}
-
-  async acceptReservation(id_res: number) {
-    const token = localStorage.getItem('token') || '';
-    if (this.id_user && token) {
-      try {
-        const response = await this.usersService.updateStatut(id_res, 'confirmee', token);
-        console.log('Reservation accepted:', response);
-
-        // Refresh the list after successful acceptance
-        await this.ngOnInit();  // Re-fetch the reservations to update the UI
-      } catch (error) {
-        console.error('Error accepting reservation:', error);
-      }
-    }
-  }
-
-  async refuseReservation(id_res: number) {
-    const token = localStorage.getItem('token') || '';
-    if (this.id_user && token) {
-      try {
-        const response = await this.usersService.updateStatut(id_res, 'refusee', token);
-        console.log('Reservation refused:', response);
-
-        // Refresh the list after successful acceptance
-        await this.ngOnInit();  // Re-fetch the reservations to update the UI
-      } catch (error) {
-        console.error('Error refusing reservation:', error);
-      }
-    }
-  }
-
 
   async ngOnInit(): Promise<void> {
     this.id_user = await this.usersService.getPrestataireIdFromToken(); // Get prestataire ID from the token
@@ -61,18 +30,11 @@ export class ReservationsComponent implements OnInit{
         if (response && Array.isArray(response.reservationDTOs)) {
           this.listOfData = [];
 
-          const pendingReservations = response.reservationDTOs.filter((res:Reservation)=> res.statut === 'en_attente');
+          const pendingReservations = response.reservationDTOs.filter((res:Reservation)=> res.statut === 'confirmee');
 
           for (const res of pendingReservations) {
-            // Fetch client details
-            //const clientResponse = await this.usersService.getClientById(res.id_client, token);
-            //console.log("client fetched:",clientResponse)
-            ////const serviceResponse = await this.usersService.getServiceById(res.service.id_ser, token); // Assuming service.id_ser exists
-
-            
-
+           
             const reservationData = {
-          //this.listOfData = response.reservations.map((res: any) => ({
             id_res: res.id_res,
             service: res.service.type, // Type of the service
             client: `${res.client.nom} ${res.client.prenom}`, // Assuming the response contains client data
